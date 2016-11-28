@@ -1,6 +1,8 @@
 # sample-springboot-katharsis
 sample springboot app uses spring data cassandra and katharsis
 
+This is a sample created for the issue
+https://jira.spring.io/browse/DATACASS-352
 
 Config steps:
 
