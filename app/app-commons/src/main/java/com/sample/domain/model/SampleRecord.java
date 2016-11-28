@@ -165,6 +165,9 @@ public class SampleRecord {
 	@Column("ma_id")
 	private String milkAnalyserId;
 
+	/* On removing below column exception - Comparison method violates its general contract
+		is not thrown
+	*/
 	@Column("ma_user_id")
 	private String milkAnalyserUserId; // Operator Id
 
