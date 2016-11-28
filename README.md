@@ -3,6 +3,7 @@ sample springboot app uses spring data cassandra and katharsis
 
 
 Config steps:
+
 1. Create directory - /etc/app/api. 
 2. Copy files under conf to /etc/app/api/.
 	i.e application.propeties and logback-spring.xml
