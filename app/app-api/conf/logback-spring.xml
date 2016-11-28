@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<!-- By default, the configuration file will be scanned for changes once 
+		every minute. -->
+
+	<appender name="ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/var/log/app/app.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>/var/log/app/app-%d{yyyy-MM-dd}.%i.gz
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 60 days' worth of history -->
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d [%t] %-5p %logger - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.sample" level="warn" />
+	<logger name="org.springframework" level="warn" />
+
+	<root level="info">
+		<appender-ref ref="ROLLING" />		
+	</root>
+</configuration>
